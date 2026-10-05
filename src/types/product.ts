@@ -14,6 +14,7 @@ export interface ProductVariant {
 }
 
 export interface Product {
+  updatedAt?: string
   /** Database id (uuid). Always use this for cart storage. */
   id: string
   slug: string

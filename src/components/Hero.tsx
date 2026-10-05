@@ -7,10 +7,10 @@ import type { SiteSettings } from '@/types/product'
 
 /** Hero collage images, taken from the original prototype. */
 const COLLAGUE = {
-  main: '/products/mascara.png',
-  lipOil: '/products/lip-oil.png',
-  aloe: '/products/aloe-foam.png',
-  foundation: '/products/foundation.png',
+  main: '/products/mascara.webp',
+  lipOil: '/products/lip-oil.webp',
+  aloe: '/products/aloe-foam.webp',
+  foundation: '/products/foundation.webp',
 }
 
 interface HeroProps {

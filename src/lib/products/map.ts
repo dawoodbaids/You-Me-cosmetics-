@@ -45,6 +45,7 @@ interface ProductRow {
   is_active: boolean
   is_featured: boolean
   sort_order: number
+  updated_at?: string
   product_variants?: VariantRow[] | null
 }
 
@@ -86,14 +87,15 @@ export function mapVariant(row: VariantRow): ProductVariant {
   }
 }
 
-export function mapProduct(row: ProductRow): Product {
+export function mapProduct(row: ProductRow, includeInactiveVariants = false): Product {
   const variants = (row.product_variants ?? [])
-    .filter((variant) => variant.is_active)
+    .filter((variant) => includeInactiveVariants || variant.is_active)
     .map(mapVariant)
     .sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0))
 
   return {
     id: row.id,
+    updatedAt: row.updated_at,
     slug: row.slug,
     nameAr: row.name_ar,
     nameEn: row.name_en,

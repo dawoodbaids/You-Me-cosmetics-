@@ -1,10 +1,11 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  // Only local files are served through next/image today. Add a Supabase
-  // Storage `remotePatterns` entry here if product images move to the CDN.
   images: {
     formats: ['image/avif', 'image/webp'],
+    remotePatterns: process.env.NEXT_PUBLIC_SUPABASE_URL
+      ? [new URL('/storage/v1/object/public/product-images/**', process.env.NEXT_PUBLIC_SUPABASE_URL)]
+      : [],
   },
 
   async headers() {

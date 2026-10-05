@@ -8,7 +8,7 @@
     "categoryLabel": "باكيجات مميزة",
     "price": 12,
     "oldPrice": 52,
-    "imageUrl": "/products/package-laverne-you-miracle.jpg",
+    "imageUrl": "/products/package-laverne-you-miracle.webp",
     "badge": "باكيج متكامل",
     "benefits": [
       "تنظيف ونعومة",
@@ -30,7 +30,7 @@
     "categoryLabel": "باكيجات مميزة",
     "price": 10,
     "oldPrice": 50,
-    "imageUrl": "/products/package-cherry-trap-boutique.jpg",
+    "imageUrl": "/products/package-cherry-trap-boutique.webp",
     "badge": "رائحة كرز منعشة",
     "benefits": [
       "رائحة منعشة",
@@ -52,7 +52,7 @@
     "categoryLabel": "أجهزة العناية",
     "price": 12,
     "oldPrice": 25,
-    "imageUrl": "/products/vgr-shaver-trimmer-2in1.jpg",
+    "imageUrl": "/products/vgr-shaver-trimmer-2in1.webp",
     "badge": "للرجال والنساء",
     "benefits": [
       "رأس مزدوج",
@@ -74,7 +74,7 @@
     "categoryLabel": "باكيجات مميزة",
     "price": 10,
     "oldPrice": 30,
-    "imageUrl": "/products/package-naqaa.jpg",
+    "imageUrl": "/products/package-naqaa.webp",
     "badge": "باكيج الأكثر مبيعاً",
     "benefits": [
       "روتين متكامل",
@@ -96,7 +96,7 @@
     "categoryLabel": "باكيجات مميزة",
     "price": 16,
     "oldPrice": 48,
-    "imageUrl": "/products/package-dalal.jpg",
+    "imageUrl": "/products/package-dalal.webp",
     "badge": "هدية مجانية",
     "benefits": [
       "دلال كامل",
@@ -118,7 +118,7 @@
     "categoryLabel": "باكيجات مميزة",
     "price": 28,
     "oldPrice": 58,
-    "imageUrl": "/products/package-muzhla.jpg",
+    "imageUrl": "/products/package-muzhla.webp",
     "badge": "إطلالة مذهلة",
     "benefits": [
       "مكياج كامل",
@@ -140,7 +140,7 @@
     "categoryLabel": "باكيجات مميزة",
     "price": 10,
     "oldPrice": 38,
-    "imageUrl": "/products/package-nasma.jpg",
+    "imageUrl": "/products/package-nasma.webp",
     "badge": "باكيج نسمة",
     "benefits": [
       "مسك طهارة",
@@ -162,7 +162,7 @@
     "categoryLabel": "عطور ومسك",
     "price": 1.25,
     "oldPrice": 17,
-    "imageUrl": "/products/musk-ard-alharamain.png",
+    "imageUrl": "/products/musk-ard-alharamain.webp",
     "badge": "8 روائح فاخرة",
     "benefits": [
       "يدوم طويلاً",
@@ -241,7 +241,7 @@
     "categoryLabel": "عطور ومسك",
     "price": 2,
     "oldPrice": 12,
-    "imageUrl": "/products/musk-tahara-oil.png",
+    "imageUrl": "/products/musk-tahara-oil.webp",
     "badge": "تركيبة مركزة",
     "benefits": [
       "تركيبة مركزة",
@@ -285,7 +285,7 @@
     "categoryLabel": "العناية بالجسم",
     "price": 2.5,
     "oldPrice": 7.5,
-    "imageUrl": "/products/nivea-deo-72h.png",
+    "imageUrl": "/products/nivea-deo-72h.webp",
     "badge": "72 ساعة حماية",
     "benefits": [
       "72 ساعة حماية",
@@ -329,7 +329,7 @@
     "categoryLabel": "مكياج",
     "price": 2,
     "oldPrice": 12,
-    "imageUrl": "/products/mascara.png",
+    "imageUrl": "/products/mascara.webp",
     "badge": "الأكثر مبيعاً",
     "benefits": [
       "مقاومة للماء",
@@ -350,7 +350,7 @@
     "categoryLabel": "العناية بالبشرة",
     "price": 2.5,
     "oldPrice": 9,
-    "imageUrl": "/products/aloe-foam.png",
+    "imageUrl": "/products/aloe-foam.webp",
     "badge": null,
     "benefits": [
       "ألوفيرا 99%",
@@ -371,7 +371,7 @@
     "categoryLabel": "شفاه وعيون",
     "price": 1.25,
     "oldPrice": null,
-    "imageUrl": "/products/lip-oil.png",
+    "imageUrl": "/products/lip-oil.webp",
     "badge": "4 نكهات",
     "benefits": [
       "ترطيب عميق",
@@ -421,7 +421,7 @@
     "categoryLabel": "مكياج",
     "price": 3,
     "oldPrice": 18,
-    "imageUrl": "/products/foundation.png",
+    "imageUrl": "/products/foundation.webp",
     "badge": "تغطية كاملة",
     "benefits": [
       "SPF25",
@@ -442,7 +442,7 @@
     "categoryLabel": "العناية بالبشرة",
     "price": 1.5,
     "oldPrice": null,
-    "imageUrl": "/products/aloe-gel.png",
+    "imageUrl": "/products/aloe-gel.webp",
     "badge": null,
     "benefits": [
       "تهدئة فورية",
@@ -478,7 +478,7 @@
     "categoryLabel": "العناية بالبشرة",
     "price": 2,
     "oldPrice": 5,
-    "imageUrl": "/products/nose-strips.png",
+    "imageUrl": "/products/nose-strips.webp",
     "badge": null,
     "benefits": [
       "فحم طبيعي",
@@ -499,7 +499,7 @@
     "categoryLabel": "مكياج",
     "price": 3,
     "oldPrice": 15,
-    "imageUrl": "/products/primer.png",
+    "imageUrl": "/products/primer.webp",
     "badge": "جديد",
     "benefits": [
       "كولاجين",
@@ -520,7 +520,7 @@
     "categoryLabel": "شفاه وعيون",
     "price": 2.5,
     "oldPrice": null,
-    "imageUrl": "/products/eye-mask.png",
+    "imageUrl": "/products/eye-mask.webp",
     "badge": "60 قطعة",
     "benefits": [
       "كولاجين",
@@ -541,7 +541,7 @@
     "categoryLabel": "العناية بالبشرة",
     "price": 2,
     "oldPrice": 7.5,
-    "imageUrl": "/products/rose-water.png",
+    "imageUrl": "/products/rose-water.webp",
     "badge": null,
     "benefits": [
       "ورد طبيعي",
@@ -562,7 +562,7 @@
     "categoryLabel": "مكياج",
     "price": 1,
     "oldPrice": 6,
-    "imageUrl": "/products/eyebrow-pencil.png",
+    "imageUrl": "/products/eyebrow-pencil.webp",
     "badge": "مقاوم للماء",
     "benefits": [
       "مظهر طبيعي",
@@ -598,7 +598,7 @@
     "categoryLabel": "مكياج",
     "price": 4,
     "oldPrice": 13,
-    "imageUrl": "/products/blush-palette.jpg",
+    "imageUrl": "/products/blush-palette.webp",
     "badge": "ألوان ناعمة",
     "benefits": [
       "6 ألوان",
@@ -619,7 +619,7 @@
     "categoryLabel": "مكياج",
     "price": 4,
     "oldPrice": 14,
-    "imageUrl": "/products/contour-palette.png",
+    "imageUrl": "/products/contour-palette.webp",
     "badge": null,
     "benefits": [
       "8 ألوان",
@@ -640,7 +640,7 @@
     "categoryLabel": "مكياج",
     "price": 3,
     "oldPrice": 8.5,
-    "imageUrl": "/products/essence-mascara.png",
+    "imageUrl": "/products/essence-mascara.webp",
     "badge": "الأكثر طلباً",
     "benefits": [
       "كثافة أكبر",
@@ -676,7 +676,7 @@
     "categoryLabel": "شفاه وعيون",
     "price": 1.5,
     "oldPrice": 5,
-    "imageUrl": "/products/sence-lip-balm.png",
+    "imageUrl": "/products/sence-lip-balm.webp",
     "badge": null,
     "benefits": [
       "ترطيب عميق",
@@ -697,7 +697,7 @@
     "categoryLabel": "شفاه وعيون",
     "price": 0.75,
     "oldPrice": 7,
-    "imageUrl": "/products/lipstick-set.png",
+    "imageUrl": "/products/lipstick-set.webp",
     "badge": "6 ألوان",
     "benefits": [
       "لون غني",
@@ -761,7 +761,7 @@
     "categoryLabel": "عطور وميست",
     "price": 2.25,
     "oldPrice": 12,
-    "imageUrl": "/products/body-mist.png",
+    "imageUrl": "/products/body-mist.webp",
     "badge": "6 روائح",
     "benefits": [
       "رائحة منعشة",
@@ -825,7 +825,7 @@
     "categoryLabel": "شفاه وعيون",
     "price": 1.25,
     "oldPrice": null,
-    "imageUrl": "/products/moist-lip.png",
+    "imageUrl": "/products/moist-lip.webp",
     "badge": "4 نكهات",
     "benefits": [
       "ترطيب",
@@ -875,7 +875,7 @@
     "categoryLabel": "العناية بالبشرة",
     "price": 2.5,
     "oldPrice": 16,
-    "imageUrl": "/products/body-scrub-cqk.png",
+    "imageUrl": "/products/body-scrub-cqk.webp",
     "badge": "500g",
     "benefits": [
       "تقشير لطيف",
@@ -932,7 +932,7 @@
     "categoryLabel": "عطور وميست",
     "price": 1,
     "oldPrice": 13,
-    "imageUrl": "/products/khamria-pure-sweet.png",
+    "imageUrl": "/products/khamria-pure-sweet.webp",
     "badge": "الأكثر مبيعاً",
     "benefits": [
       "ثبات طويل",
@@ -989,7 +989,7 @@
     "categoryLabel": "العناية بالبشرة",
     "price": 7,
     "oldPrice": 20,
-    "imageUrl": "/products/boutique-baby-powder.png",
+    "imageUrl": "/products/boutique-baby-powder.webp",
     "badge": "مجموعة متكاملة",
     "benefits": [
       "مجموعة كاملة",
@@ -1010,7 +1010,7 @@
     "categoryLabel": "العناية بالبشرة",
     "price": 1,
     "oldPrice": 6,
-    "imageUrl": "/products/hand-mask-aloe.png",
+    "imageUrl": "/products/hand-mask-aloe.webp",
     "badge": "20 دقيقة",
     "benefits": [
       "ألوفيرا",
@@ -1031,7 +1031,7 @@
     "categoryLabel": "العناية بالبشرة",
     "price": 3.5,
     "oldPrice": 19,
-    "imageUrl": "/products/hyaluronic-cream.png",
+    "imageUrl": "/products/hyaluronic-cream.webp",
     "badge": "هيالورونيك",
     "benefits": [
       "هيالورونيك",
@@ -1052,7 +1052,7 @@
     "categoryLabel": "مكياج",
     "price": 3,
     "oldPrice": 18,
-    "imageUrl": "/products/flawless-filter-primer.png",
+    "imageUrl": "/products/flawless-filter-primer.webp",
     "badge": "إشراقة فورية",
     "benefits": [
       "إشراقة فورية",
@@ -1073,7 +1073,7 @@
     "categoryLabel": "العناية بالبشرة",
     "price": 7,
     "oldPrice": 15,
-    "imageUrl": "/products/sheglam-spf90.png",
+    "imageUrl": "/products/sheglam-spf90.webp",
     "badge": "SPF 90+",
     "benefits": [
       "SPF 90+",
@@ -1094,7 +1094,7 @@
     "categoryLabel": "شفاه وعيون",
     "price": 1,
     "oldPrice": 8.5,
-    "imageUrl": "/products/lip-liner-marker-rm.jpg",
+    "imageUrl": "/products/lip-liner-marker-rm.webp",
     "badge": "6 ألوان",
     "benefits": [
       "تحديد دقيق",
@@ -1158,7 +1158,7 @@
     "categoryLabel": "العناية بالبشرة",
     "price": 2.5,
     "oldPrice": 10,
-    "imageUrl": "/products/cqk-bamboo-charcoal-mask.jpg",
+    "imageUrl": "/products/cqk-bamboo-charcoal-mask.webp",
     "badge": "فحم الخيزران",
     "benefits": [
       "ينظف المسام بعمق",
@@ -1180,7 +1180,7 @@
     "categoryLabel": "عطور ومسك",
     "price": 7,
     "oldPrice": 22,
-    "imageUrl": "/products/you-miracle-sexy-clothes-duo.jpg",
+    "imageUrl": "/products/you-miracle-sexy-clothes-duo.webp",
     "badge": "250ml لكل عبوة",
     "benefits": [
       "رائحة تدوم طويلاً",
@@ -1202,7 +1202,7 @@
     "categoryLabel": "مكياج",
     "price": 2,
     "oldPrice": 14,
-    "imageUrl": "/products/bb-7in1-foundation.png",
+    "imageUrl": "/products/bb-7in1-foundation.webp",
     "badge": "C+ معادن وفيتامينات",
     "benefits": [
       "تغطية مثالية",

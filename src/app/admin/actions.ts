@@ -56,6 +56,7 @@ export async function signOut(): Promise<void> {
 
 export interface ProductPricePayload {
   productId: string
+  updatedAt: string
   price: number
   oldPrice: number | null
   /** Variant id → new price. Only the ones present are written. */
@@ -67,7 +68,7 @@ const MAX_PRICE = 100_000
 export async function saveProductPrices(payload: ProductPricePayload): Promise<ActionResult> {
   if (!(await isAdmin())) return { ok: false, message: 'غير مصرّح — سجّلي الدخول كمسؤول.' }
 
-  const { productId, price, oldPrice, variantPrices } = payload
+  const { productId, updatedAt, price, oldPrice, variantPrices } = payload
   if (!productId) return { ok: false, message: 'معرّف المنتج مفقود.' }
 
   if (!Number.isFinite(price) || price < 0 || price > MAX_PRICE) {
@@ -86,24 +87,15 @@ export async function saveProductPrices(payload: ProductPricePayload): Promise<A
 
   const supabase = await createClient()
 
-  const { error: productError } = await supabase
-    .from('products')
-    .update({ price, old_price: oldPrice })
-    .eq('id', productId)
+  const { error: productError } = await supabase.rpc('admin_save_product_prices', {
+    p_id: productId,
+    p_price: price,
+    p_old_price: oldPrice,
+    p_variants: variantPrices,
+    p_expected_updated_at: updatedAt,
+  })
 
   if (productError) return { ok: false, message: `تعذّر حفظ سعر المنتج: ${productError.message}` }
-
-  // Upsert-by-update in one round trip; RLS blocks non-admins regardless.
-  const results = await Promise.all(
-    entries.map(([variantId, variantPrice]) =>
-      supabase.from('product_variants').update({ price: variantPrice }).eq('id', variantId),
-    ),
-  )
-
-  const failed = results.find((result) => result.error)
-  if (failed?.error) {
-    return { ok: false, message: `تعذّر حفظ سعر أحد الأنواع: ${failed.error.message}` }
-  }
 
   revalidatePath('/')
   revalidatePath('/admin')
@@ -123,7 +115,11 @@ export async function setProductFlags(
   if (!productId) return { ok: false, message: 'معرّف المنتج مفقود.' }
 
   const supabase = await createClient()
-  const { error } = await supabase.from('products').update(patch).eq('id', productId)
+  const flags: { is_active?: boolean; is_featured?: boolean } = {}
+  if (typeof patch.is_active === 'boolean') flags.is_active = patch.is_active
+  if (typeof patch.is_featured === 'boolean') flags.is_featured = patch.is_featured
+  if (!Object.keys(flags).length) return { ok: false, message: 'اختاري الحالة المطلوبة.' }
+  const { error } = await supabase.from('products').update(flags).eq('id', productId).select('id').single()
   if (error) return { ok: false, message: error.message }
 
   revalidatePath('/')

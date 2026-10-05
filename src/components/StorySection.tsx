@@ -48,21 +48,21 @@ export default function StorySection({ productCount }: { productCount: number })
             <div className="relative mx-auto max-w-[420px] rounded-[28px] border border-white bg-white p-3 shadow-[0_24px_60px_rgba(74,46,42,0.12)]">
               <div className="grid grid-cols-2 gap-3">
                 <Image
-                  src="/products/rose-water.png"
+                  src="/products/rose-water.webp"
                   alt="ماء الورد"
                   width={300}
                   height={300}
                   className="h-[160px] w-full rounded-[18px] object-cover"
                 />
                 <Image
-                  src="/products/aloe-gel.png"
+                  src="/products/aloe-gel.webp"
                   alt="جل الألوفيرا"
                   width={300}
                   height={300}
                   className="h-[160px] w-full rounded-[18px] object-cover"
                 />
                 <Image
-                  src="/products/primer.png"
+                  src="/products/primer.webp"
                   alt="برايمر"
                   width={600}
                   height={340}

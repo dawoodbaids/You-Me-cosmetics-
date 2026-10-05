@@ -53,14 +53,14 @@ export default async function AdminPage() {
     supabase
       .from('products')
       .select(
-        'id, slug, name_ar, name_en, description, category, category_label, price, old_price, image_url, badge, benefits, is_active, is_featured, sort_order, product_variants(id, product_id, label, price, is_active, sort_order)',
+        'id, slug, name_ar, name_en, description, category, category_label, price, old_price, image_url, badge, benefits, is_active, is_featured, sort_order, updated_at, product_variants(id, product_id, label, price, is_active, sort_order)',
       )
       .order('sort_order', { ascending: true }),
     supabase.from('site_settings').select('key, value'),
   ])
 
   const products: Product[] = (productsResult.data ?? []).map((row) =>
-    mapProduct(row as Parameters<typeof mapProduct>[0]),
+    mapProduct(row as Parameters<typeof mapProduct>[0], true),
   )
   const settings: SiteSettings = mapSettings(settingsResult.data)
 
@@ -101,7 +101,9 @@ export default async function AdminPage() {
         </div>
       </header>
 
-      <AdminDashboard products={products} settings={settings} />
+      {productsResult.error || settingsResult.error ? (
+        <p role="alert" className="p-8 text-center text-rose">تعذر تحميل لوحة الإدارة. يرجى تحديث الصفحة والمحاولة مجدداً.</p>
+      ) : <AdminDashboard products={products} settings={settings} />}
     </main>
   )
 }

@@ -60,6 +60,7 @@ const sqlJson = (value) =>
 /* ------------------------------------------------------------ image lookups */
 
 const imageFiles = (await readdir(imagesDir)).filter((f) => !f.startsWith('.'))
+  .sort((a, b) => Number(!a.endsWith('.webp')) - Number(!b.endsWith('.webp')) || a.localeCompare(b))
 const imageBySlug = new Map()
 for (const file of imageFiles) {
   const slug = file.replace(/\.[^.]+$/, '')

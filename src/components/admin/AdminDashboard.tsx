@@ -11,8 +11,9 @@ import {
 } from '@/app/admin/actions'
 import { formatJod } from '@/lib/format'
 import type { Product, SiteSettings } from '@/types/product'
+import ProductManager from '@/components/admin/ProductManager'
 
-type Tab = 'prices' | 'settings'
+type Tab = 'products' | 'prices' | 'settings'
 
 export default function AdminDashboard({
   products,
@@ -21,8 +22,9 @@ export default function AdminDashboard({
   products: Product[]
   settings: SiteSettings
 }) {
-  const [tab, setTab] = useState<Tab>('prices')
+  const [tab, setTab] = useState<Tab>('products')
   const [query, setQuery] = useState('')
+  const [editing, setEditing] = useState(false)
 
   const visible = useMemo(() => {
     const needle = query.trim().toLowerCase()
@@ -41,15 +43,16 @@ export default function AdminDashboard({
     <div className="mx-auto max-w-[1280px] px-4 py-8 md:px-8">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-[24px] font-extrabold">الأسعار والمخزون</h1>
+          <h1 className="text-[24px] font-extrabold">إدارة المنتجات والمتجر</h1>
           <p className="mt-1 text-[12.5px] text-cocoa/60">
-            {products.length} منتج • {variantCount} نوع — كل تعديل يُحفظ في Supabase فوراً.
+            {products.length} منتج • {variantCount} نوع — اضغطي حفظ لتطبيق التعديلات في المتجر.
           </p>
         </div>
 
         <div className="flex gap-1 rounded-full border border-sand bg-white p-1">
           {(
             [
+              ['products', 'المنتجات'],
               ['prices', 'الأسعار'],
               ['settings', 'الإعدادات'],
             ] as const
@@ -58,8 +61,9 @@ export default function AdminDashboard({
               key={key}
               type="button"
               onClick={() => setTab(key)}
+              disabled={editing && key !== 'products'}
               aria-pressed={tab === key}
-              className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold transition ${
+              className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold transition disabled:opacity-40 ${
                 tab === key ? 'bg-cocoa text-white' : 'text-cocoa/60'
               }`}
             >
@@ -69,7 +73,7 @@ export default function AdminDashboard({
         </div>
       </div>
 
-      {tab === 'prices' ? (
+      {tab === 'products' ? <ProductManager products={products} currency={settings.currency} onEditingChange={setEditing} /> : tab === 'prices' ? (
         <>
           <input
             type="search"
@@ -81,7 +85,7 @@ export default function AdminDashboard({
 
           <div className="mt-5 space-y-4">
             {visible.map((product) => (
-              <ProductEditor key={product.id} product={product} currency={settings.currency} />
+              <ProductEditor key={`${product.id}-${product.updatedAt}`} product={product} currency={settings.currency} />
             ))}
           </div>
         </>
@@ -145,21 +149,23 @@ function ProductEditor({ product, currency }: { product: Product; currency: stri
 
         <div className="flex items-center gap-2">
           <Toggle
+            disabled={pending || dirty}
             label="مفعّل"
             active={product.isActive ?? true}
             onChange={(value) =>
               startTransition(async () => {
-                await setProductFlags(product.id, { is_active: value })
+                setResult(await setProductFlags(product.id, { is_active: value }))
                 router.refresh()
               })
             }
           />
           <Toggle
+            disabled={pending || dirty}
             label="مميّز"
             active={product.isFeatured ?? false}
             onChange={(value) =>
               startTransition(async () => {
-                await setProductFlags(product.id, { is_featured: value })
+                setResult(await setProductFlags(product.id, { is_featured: value }))
                 router.refresh()
               })
             }
@@ -236,6 +242,7 @@ function ProductEditor({ product, currency }: { product: Product; currency: stri
             startTransition(async () => {
               const response = await saveProductPrices({
                 productId: product.id,
+                updatedAt: product.updatedAt ?? '',
                 price: parsedPrice,
                 oldPrice: parsedOldPrice,
                 variantPrices: parsedVariants,
@@ -268,10 +275,12 @@ function ProductEditor({ product, currency }: { product: Product; currency: stri
 /* ----------------------------------------------------------------- toggles */
 
 function Toggle({
+  disabled,
   label,
   active,
   onChange,
 }: {
+  disabled: boolean
   label: string
   active: boolean
   onChange: (value: boolean) => void
@@ -279,6 +288,7 @@ function Toggle({
   return (
     <button
       type="button"
+      disabled={disabled}
       onClick={() => onChange(!active)}
       aria-pressed={active}
       className={`rounded-full border px-3 py-1.5 text-[11.5px] font-bold transition ${

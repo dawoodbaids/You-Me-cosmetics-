@@ -1,4 +1,12 @@
-# You & Me Cosmetics — Storefront
+# You & Me Cosmetics - Storefront
+
+**Existing production upgrade:** full product/variant/image management is documented in
+[Product management deployment and testing](docs/product-management.md). Apply only migration
+`002_product_management.sql` to an existing database; do not rerun the initial schema or seed.
+The original setup instructions below are for a new database.
+
+For existing images, see the [manual WebP image migration guide](docs/image-migration.md).
+It provides dry-run, migration and verification commands, preserves originals, and never runs seeds.
 
 Production rebuild of the original single-file prototype (`../You-Cosmetics.html`) as a
 Next.js 16 app backed by Supabase.
