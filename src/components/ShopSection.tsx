@@ -1,6 +1,7 @@
 'use client'
 
-import { SparklesIcon } from '@/components/icons'
+import { HeartIcon } from '@/components/icons'
+import styles from './Hero.module.css'
 import { CATEGORY_FILTERS } from '@/lib/categories'
 import type { CategoryFilter } from '@/types/product'
 import ProductCard from '@/components/ProductCard'
@@ -33,16 +34,12 @@ export default function ShopSection({
   const favoriteSet = new Set(favorites)
 
   return (
-    <section id="shop" className="mx-auto max-w-[1280px] px-4 py-12 md:px-8 md:py-16">
+    <section id="shop" className="mx-auto max-w-[1280px] px-4 pb-12 pt-6 md:px-8 md:pb-16 md:pt-8">
       <div className="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <div className="inline-flex items-center gap-2 text-[12px] font-bold tracking-widest text-[#B78A4E]">
-            <SparklesIcon className="h-4 w-4" />
-            تشكيلتنا المختارة - {products.length} منتج
-          </div>
-          <h2 className="mt-2 text-[28px] font-extrabold leading-tight md:text-[36px]">
-            اكتشفي المنتج الذي يشبهك 💄🌷
-          </h2>
+        <div className={styles.sectionIntro}>
+          <div className={styles.introOrnament}><HeartIcon /></div>
+          <p>منتجات مختارة لك</p>
+          <h2>الأكثر <span>طلباً</span></h2>
         </div>
 
         <div className="flex flex-wrap gap-2" role="group" aria-label="تصفية حسب الفئة">

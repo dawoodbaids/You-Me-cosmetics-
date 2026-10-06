@@ -1,9 +1,11 @@
 'use client'
 
 import Image from 'next/image'
+import { useState } from 'react'
 import { BagIcon, FacebookIcon, HeartIcon, InstagramIcon, WhatsappIcon } from '@/components/icons'
 import { whatsappLink } from '@/lib/whatsapp'
 import type { SiteSettings } from '@/types/product'
+import styles from './Hero.module.css'
 
 const NAV = [
   { id: 'home', label: 'الرئيسية' },
@@ -27,24 +29,43 @@ export default function Header({
   onOpenCart,
   onScrollTo,
 }: HeaderProps) {
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [searchMessage, setSearchMessage] = useState('')
+
   return (
-    <header className="sticky top-0 z-40 overflow-x-hidden border-b border-sand/80 bg-white/70 backdrop-blur-xl">
-      <div className="mx-auto flex h-[72px] max-w-[1280px] items-center justify-between px-4 md:px-8">
-        <div className="flex items-center gap-6">
+    <header className={styles.header}>
+      <div className={styles.headerInner}>
+        <div className={styles.mobileControls}>
+          <details className={styles.mobileMenu}>
+            <summary aria-label="فتح القائمة">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M4 6h16M4 12h12M4 18h16" /></svg>
+            </summary>
+            <nav aria-label="القائمة الرئيسية">
+              {NAV.map(item => <button key={item.id} type="button" onClick={event => {
+                onScrollTo(item.id)
+                event.currentTarget.closest('details')?.removeAttribute('open')
+              }}>{item.label}</button>)}
+            </nav>
+          </details>
+          <button type="button" aria-label="البحث عن منتج" aria-expanded={searchOpen} aria-controls="hero-search" onClick={() => setSearchOpen(!searchOpen)}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 5 5" /></svg>
+          </button>
+        </div>
+        <div className={`${styles.brandBlock} flex items-center gap-6`}>
           <button
             type="button"
             onClick={() => onScrollTo('home')}
             className="flex items-center gap-3"
             aria-label="الصفحة الرئيسية"
           >
-            <span className="h-11 w-11 overflow-hidden rounded-full border border-sand bg-white shadow-sm">
+            <span className={styles.logo}>
               <Image
                 src="/brand/logo.jpg"
                 alt="You &amp; Me"
-                width={44}
-                height={44}
+                width={60}
+                height={60}
                 className="h-full w-full object-cover"
-                priority
+                loading="eager"
               />
             </span>
             <span className="hidden text-right leading-none sm:block">
@@ -70,7 +91,7 @@ export default function Header({
           </nav>
         </div>
 
-        <div className="flex items-center gap-2 md:gap-3">
+        <div className={`${styles.headerActions} flex items-center gap-2 md:gap-3`}>
           <button
             type="button"
             onClick={onOpenCart}
@@ -135,6 +156,24 @@ export default function Header({
           </a>
         </div>
       </div>
+      {searchOpen && <form id="hero-search" role="search" className={styles.searchPanel} onSubmit={event => {
+        event.preventDefault()
+        const query = String(new FormData(event.currentTarget).get('query') ?? '').trim().toLocaleLowerCase('ar')
+        if (!query) return
+        const cards = document.querySelectorAll<HTMLElement>('#shop article')
+        const match = Array.from(cards).find(card => card.textContent?.toLocaleLowerCase('ar').includes(query))
+        if (match) {
+          match.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'center' })
+          match.setAttribute('tabindex', '-1')
+          match.focus({ preventScroll: true })
+          setSearchOpen(false)
+          setSearchMessage('')
+        } else setSearchMessage('لا توجد نتيجة ضمن المنتجات المعروضة. جرّبي فئة أخرى أو اسمًا آخر.')
+      }}>
+        <label htmlFor="hero-search-input">ابحثي في المنتجات المعروضة</label>
+        <div><input id="hero-search-input" name="query" type="search" required autoFocus placeholder="اسم المنتج" /><button type="submit">بحث</button></div>
+        <p role="status">{searchMessage}</p>
+      </form>}
     </header>
   )
 }
